@@ -22,6 +22,7 @@ def check_blank(data):
 # Create your views here.
 def index(request):
 	context = {}
+	context['siteinfo']=siteinfo.objects.all().first()
 	if request.method == "POST":
 		firstname = request.POST.get("firstname")
 		lastname = request.POST.get("lastname")
@@ -33,28 +34,33 @@ def index(request):
 			context['status'] = "your query is successfully sent"
 		else:
 			context['status'] = "Please fill all Filled"
-		context['slider'] = slider.objects.all()
+		context['slider'] = slider.objects.all().order_by("-id")
+		context['service']=service.objects.all().order_by("-id")
 	else:	
-		context['slider'] = slider.objects.all()
+		context['slider'] = slider.objects.all().order_by("-id")
 		context['home']='active'
+		context['service']=service.objects.all().order_by("-id")
 	return render(request,"package/index.html",context)
 
 
-def about_us(request):
+def view_about_us(request):
 	context={}
 	context['about_us']='active'
+	context['about_us_data']=about_us.objects.all().order_by("-id")
 	return render(request,'package/about.html',context)
 
 
 def view_core_service(request):
 	context={}
 	context['view_core_service']='active'
+	context['core_service']=core_service.objects.all().order_by("-id")
 	return render(request,'package/view_core_service.html',context)
 
 
 def intustry_service(request):
 	context={}
 	context['intustry_service']='active'
+	context['industry_service_data']=industry_service.objects.all().order_by("-id")
 	return render(request,'package/intustry_service.html',context)
 
 

@@ -1,41 +1,20 @@
 {% extends "package/base.html" %}
       {% block content %}
+
+          {% for x in core_service %}
         <div class="service">
             <div class="container">
                 <div class=" text-center">
                    
-                    <h2 >Domestic Air Freight</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380 ">When time is crucial for your cargo, our air freight services are your best option as we offer daily worldwide departures. So regardless if you are shipping perishables, hazardous cargo or any commodity that needs to be delivered fast and on time, we have a solution for you. SD express, When you need the fastest mode of transportation, you can count on Allegro’s air freight service to deliver your cargo. Our experienced team works closely with you to find the most appropriate aircraft service for your freight. Whether you need to send a small package or ship heavy, oversized cargo, we evaluate the size of the cargo, your budget, and delivery time-frame and provide you the best airfreight solution.</p>
-                    <img src="https://images.unsplash.com/photo-1483375801503-374c5f660610?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" width="60%" height="40%">
-
-                </div>
-
+                    <h2 >{{ x.name }}</h2>
+                     <p style="text-align: center; font-weight: bold; color:#5491d2cf ">{{ x.description }}</p>
+                     <img src="{{ x.image.url }}" width="70%" height="50%">
+               </div>
             </div>
         </div>
-        <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                   
-                    <h2 >Train Freight</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380 ">Excellent quality, easy to use and reasonable price are just few to mention features of our highlighted train freight services. We offer a quality-assured and planned as per the client preference services and solutions. We ensure the highest levels of safety while operation and the entire service is customized to give the customer the maximum benefit. We use rail freight services so smartly as to seamlessly provide a fully integrated and sustainable transportation and logistics service – from source to delivery point. Truck transfer from terminal to train Information of delivery status to the shipper Right rolling stock for all types of freight Processing railway documents</p>
-                    <img src="https://images.unsplash.com/photo-1534883149613-58bb7c25b510?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fGNhcmdvJTIwdHJhaW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" width="60%" height="40%">
+       {% endfor %}
 
-                </div>
 
-            </div>
-        </div>
-        <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                   
-                    <h2 >Road Freight</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380 ">We can deliver your cargo anywhere in and around India through Road. We provide a safe and cost effective inland transport which ensure flexibility to cope up with the customer demand. *Road Freight services includes: *Full truck loads FTL & Partly truck loads LTL *Consolidation Services & Express Parcel *Special Transports & Trailer Operation *Reefer and temperature controlled transports</p>
-                    <img src="https://images.unsplash.com/photo-1541969487406-1f1adf3884ab?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80" width="60%" height="40%">
-
-                </div>
-
-            </div>
-        </div>
       <!-- {% for x in service %}
       <div class="service">
             <div class="container">

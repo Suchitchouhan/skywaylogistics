@@ -5,8 +5,8 @@
         <meta charset="utf-8">
         <title>Skyway logistics</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Skyway Logistic" name="keywords">
-        <meta content="Skyway" name="description">
+        <meta content="{{ siteinfo.keyword }}" name="keywords">
+        <meta content="{{ siteinfo.description }}" name="description">
 
         <!-- Favicon -->
         <link href="{% static 'package/img/skywaylogo.png' %}" rel="icon">
@@ -45,18 +45,18 @@
                                     </div>
                                     <div class="top-bar-text">
                                         <h3>Opening Hour</h3>
-                                        <p>Mon - Sun, 10:00 AM - 10:00 PM</p>
+                                        <p>{{ siteinfo.openhours }}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-3">
                                 <div class="top-bar-item">
                                     <div class="top-bar-icon">
                                         <i class="fa fa-phone-alt"></i>
                                     </div>
                                     <div class="top-bar-text">
                                         <h3>Call Us</h3>
-                                        <p>+917701877164</p>
+                                        <p>{{ siteinfo.mobile }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="top-bar-text">
                                         <h3>Email Us</h3>
-                                        <p>sauravjha@skywaylogistics.in</p>
+                                        <p>{{ siteinfo.email }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -91,9 +91,9 @@
                         <div class="navbar-nav mr-auto">
                             <a href="/" class="nav-item nav-link {{ home }}">Home</a>
                             <a href="/about_us" class="nav-item nav-link {{ about_us }}">About</a>
-                            <a href="/view_core_service" class="nav-item nav-link {{ view_core_service }}">Core Service</a>
-                            <a href="/intustry_service" class="nav-item nav-link {{ intustry_service }}">Industry Service</a>
-                            <a href="/Specialized_Logistic" class="nav-item nav-link {{ Specialized_Logistic }}">Specialized Logistic</a>
+                            <a href="/view_core_service" class="nav-item nav-link {{ view_core_service }}">Core Services</a>
+                            <a href="/intustry_service" class="nav-item nav-link {{ intustry_service }}">Industry Services</a>
+                            <!-- <a href="/Specialized_Logistic" class="nav-item nav-link {{ Specialized_Logistic }}">Specialized Logistic</a> -->
 <!--                             <a href="/Specialized_Logistic" class="nav-item nav-link">Specialized Logistic</a>
  -->                        <a href="/feight_Quote" class="nav-item nav-link {{ feight_Quote }}">Feight Quote</a>
                             <a href="/track" class="nav-item nav-link {{ track }}">Track</a>
@@ -117,15 +117,22 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
                             <h2>Get In Touch</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>111-GF, Nitikhand,Indirapuram,Ghaziabad </p>
-                            <p><i class="fa fa-phone-alt"></i>+917701877164</p>
-                            <p><i class="fa fa-envelope"></i>sauravjha@skywaylogistics.in</p>
+                            <p><i class="fa fa-map-marker-alt"></i>{{ siteinfo.address }}</p>
+                            <p><i class="fa fa-phone-alt"></i>{{ siteinfo.mobile }}</p>
+                            <p><i class="fa fa-envelope"></i>{{ siteinfo.email }}</p>
                             <div class="footer-social">
-                                <a class="btn" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn" href=""><i class="fab fa-youtube"></i></a>
-                                <a class="btn" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn" href=""><i class="fab fa-linkedin-in"></i></a>
+                                {% if siteinfo.twitter == True %}
+                                <a class="btn" href="{{ siteinfo.twitter_link }}"><i class="fab fa-twitter"></i></a>
+                                {% endif %}
+                                {% if siteinfo.facebook == True %}
+                                <a class="btn" href="{{ siteinfo.facebook_link }}"><i class="fab fa-facebook-f"></i></a>
+                                {% endif %}
+                                {% if siteinfo.intagram == True %}
+                                <a class="btn" href="{{ siteinfo.intagram_link }}"><i class="fab fa-instagram"></i></a>
+                                {% endif %}
+                                {% if siteinfo.linkedin == True %}
+                                <a class="btn" href="{{ siteinfo.linkedin_link }}"><i class="fab fa-linkedin-in"></i></a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -135,7 +142,7 @@
                             <a href="/">Home</a>
                             <a href="/about_us">About Us</a>
                             <a href="/view_core_service">Core Service</a>
-                            <a href="/Specialized_Logistic">Industry Service</a>
+                        <!--     <a href="/Specialized_Logistic">Industry Service</a> -->
                             <a href="/feight_Quote">Freight Quotes</a>
                             <a href="/track">Track</a>
                             <a href="/add_feedback">Feedback</a>

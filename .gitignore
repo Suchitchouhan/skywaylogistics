@@ -11,3 +11,4 @@ package/migrations/
 package/__pycache__
 package/__pycache__/
 djcargomovers/__pycache__
+postgresql-data

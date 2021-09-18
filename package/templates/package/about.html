@@ -1,15 +1,17 @@
 {% extends "package/base.html" %}
       {% block content %}
+
+      {% for x in about_us_data %}
       <div class="service">
             <div class="container">
                 <div class=" text-center">
                    
-                    <h2 >About Us</h2>
-                     <p style="text-align: center; font-weight: bold; color:#e81c2e ">skywaylogistics Movers in Dwarka New Delhi.Founded in 2013 and headquartered in Dwarka New Delhi, We are the leading Domestic logistics & freight forwarding services providers, specializing in innovative shipping management solutions. skywaylogistics has evolved from a traditional Domestic freight forwarding services to one of the leading Domestic providers of innovative and fully integrated supply chain solution,While leading the future of the logistics industry.A moving firm, skywaylogistics in Dwarka New Delhi, is one of the well-known firms for transporting household goods, Commercial Goods, Exhibition Goods, Perishable goods and other products,this venture is a professionally managed firm engaged in packing, unpacking, local shifting, transportation, storage of automobiles and household goods. In the course of time, it has become one of the preferred and reliable services for moving goods. Door to Door & Port to Port. This service firm consistently dedicates its efforts towards providing its customers with superior services. This venture services all areas of to all over DOMESTIC . Over the course of its journey, it has earned countless testimonials and praise-worthy reviews for its impeccable moving services from its loyal base of customers. In the neighborhood of Dwarka in New Delhi. Undoubtedly it is one of the best Domestic Cargo Agent Dwarka, New Delhi.</p>
-<!-- <img src="https://jdcargomovers.com/wp-content/uploads/2019/06/wallpaper2you_184547-1024x640.jpg" width="60%" height="40%">
- -->                </div>
-
+                    <h2 >{{ x.name }}</h2>
+                     <p style="text-align: center; font-weight: bold; color:#5491d2cf ">{{ x.description }}</p>
+                     <img src="{{ x.image.url }}" width="70%" height="50%">
+               </div>              
             </div>
-
         </div>
+       {% endfor %}
+
 {% endblock content %}        

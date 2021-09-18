@@ -1,6 +1,28 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+class siteinfo(models.Model):
+	title=models.CharField(default="",max_length=500)
+	openhours=models.CharField(default="",max_length=1000)
+	email=models.EmailField(default="",max_length=1000)
+	mobile=models.CharField(default="",max_length=20)
+	description=models.TextField()
+	keyword=models.TextField(default="")
+	address=models.TextField(default="")
+	facebook=models.BooleanField(default=False)
+	facebook_link=models.URLField(max_length=1000,blank=True)
+	intagram=models.BooleanField(default=False)
+	intagram_link=models.URLField(max_length=1000,blank=True)
+	linkedin=models.BooleanField(default=False)
+	linkedin_link=models.URLField(max_length=1000,blank=True)
+	twitter=models.BooleanField(default=False)
+	twitter_link=models.URLField(max_length=1000,blank=True)	
+	def __str__(self):
+		return self.email
+
+
+
+
 class slider(models.Model):
 	image = models.ImageField(default="avatars/Train-Freight-1024x576.jpg",upload_to='avatars/', blank=True, null=True)
 	spec = models.CharField(default=' ',max_length=200)
@@ -85,10 +107,41 @@ class shippment_history(models.Model):
 		return self.date
 
 class feedback(models.Model):
-	email=models.CharField(default='',max_length=100)
+	email=models.CharField(default='',max_length=1000)
 	mobile=models.CharField(default='',max_length=20)
-	fullname=models.CharField(default='',max_length=200)
-	about=models.CharField(default='',max_length=200)
-	description=models.CharField(default='',max_length=300)
+	fullname=models.CharField(default='',max_length=1000)
+	about=models.CharField(default='',max_length=1000)
+	description=models.TextField()
 	def __str__(self):
 		return self.email
+
+
+class service(models.Model):
+	name=models.CharField(default="",max_length=500)		
+	description=models.TextField()
+	def __str__(self):
+		return self.name
+
+class about_us(models.Model):
+	name=models.CharField(default="",max_length=1000)
+	description=models.TextField()
+	image=models.ImageField(upload_to ='about_us')
+	def __str__(self):
+		return self.name		
+
+
+class core_service(models.Model):
+	name=models.CharField(default="",max_length=1000)
+	description=models.TextField()
+	image=models.ImageField(upload_to ='about_us')
+	def __str__(self):
+		return self.name		
+
+
+class industry_service(models.Model):
+	name=models.CharField(default="",max_length=1000)
+	description=models.TextField()
+	image=models.ImageField(upload_to ='about_us')
+	def __str__(self):
+		return self.name		
+

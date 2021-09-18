@@ -1,72 +1,19 @@
 {% extends "package/base.html" %}
       {% block content %}
+       {% for x in industry_service_data %}
        <div class="service">
             <div class="container">
                 <div class=" text-center">
                    
-                    <h2>CONSUMER GOODS</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380">The India’s top consumer brands need logistics partners like us; helping consumer goods companies manage high stock turnover and keeping the level of freight costs under control.</p>
-                </div>
-            </div>
-        </div>
-        <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                   
-                    <h2>PERISHABLES</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380">We provide shipments comprise of vegetables, seafood, chilled meat or flowers, we offer airfreight services that meet special needs of perishable goods.</p>
-                </div>
-            </div>
-        </div>
-        <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                    <h2>COURIER</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380">SD express make sure your courier is shipped in a manner to fit your needs for Urgent document or a parcel.</p>
-                </div>
-            </div>
-        </div>
-        <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                    <h2>AUTOMOTIVE</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380">SD express helps its automotive customers in managing global supplier networks and deliveries for maintaining top efficiency.</p>
-                </div>
-            </div>
-        </div>
-        <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                    <h2>ELECTRONICS AND IT PARTS</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380">We provide secure logistic for manufacturers of consumer electronics, semiconductors, computers, mobile devices, and telecommunications equipment.</p>
-                </div>
-            </div>
-        </div>
-        <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                   
-                    <h2>PRINT</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380">We provides services to the print industry. We ship newspapers, magazines and other print items and ensure your shipping needs are well taken care of.</p>
-                </div>
-            </div>
-        </div>
+                    <h2 >{{ x.name }}</h2>
+                     <p style="text-align: center; font-weight: bold; color:#5491d2cf ">{{ x.description }}</p>
+                     <img src="{{ x.image.url }}" width="70%" height="50%">
+               </div>
 
-      <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                    <h2 >TEXTILE</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380 ">We fulfill import needs of the textile industry in diverse geographies locations in India.</p>
-                </div>
             </div>
         </div>
-        <div class="service">
-            <div class="container">
-                <div class=" text-center">
-                    <h2 >E-COMMERCE</h2>
-                    <p style="text-align: center; font-weight: bold; color:#0b4380 ">We are ever prepared to offer specific services as Retail environment requires sellers to continuously create seamless, cross-platform customer propositions. Clients often need bulk cargo to be transported over long distances so as to continuously meet the inexhaustible chain of the expansive retail markets.</p>
-                </div>
-            </div>
-        </div>
+       {% endfor %}
+
+   
 
 {% endblock content %}        

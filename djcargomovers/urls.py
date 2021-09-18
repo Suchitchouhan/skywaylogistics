@@ -30,7 +30,7 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",index,name="index"),
-    path("about_us",about_us,name="about_us"),
+    path("about_us",view_about_us,name="about_us"),
     path("view_core_service",view_core_service,name="view_core_service"),
     path("intustry_service",intustry_service,name="intustry_service"),
     path("Specialized_Logistic",Specialized_Logistic,name="Specialized_Logistic"),
