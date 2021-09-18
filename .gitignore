@@ -1,0 +1,13 @@
+env
+media
+static
+staticfiles
+cmr/migrations
+cmr/migrations/
+cmr/__pycache__
+cmr/__pycache__/
+package/migrations
+package/migrations/
+package/__pycache__
+package/__pycache__/
+djcargomovers/__pycache__

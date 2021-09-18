@@ -1,0 +1,23 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store-categories">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li>Upload Cargo Csv</li>
+          </ul>
+         <form action="/add_consignment" method="POST" enctype="multipart/form-data" class="add-form">
+         	{% csrf_token %}
+            <div class="inputs-wrapper">
+               <div class="name-field">
+                  <label for="name">CSV: </label>
+                  <input type="file" name="csv" placeholder="Don't use space please" required>
+               </div>
+                      
+            </div>
+            <button class="add-btn" href="#" type="submit">Create/update</button>
+         </form>
+         
+         <a class="back-btn" href="/panel"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}        

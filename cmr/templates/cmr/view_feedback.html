@@ -1,0 +1,55 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li>feedback us</li>
+          </ul>
+         <div class="table-wrapper">
+            <table class="large-table">
+               <tr>
+                  <th>Email</th>
+                  <th>Mobile</th>
+                  <th>Fullname</th>
+                  <th>about</th>
+                  <th>Description</th>
+
+               </tr>
+               {% for x in contact %}
+               <tr>
+                  <td>{{ x.email }}</td>
+                  <td>{{ x.mobile }}</td>
+                  <td>{{ x.fullname }}</td>
+                  <td>{{ x.about }}</td>
+                  <td>{{ x.description }}</td>    
+               </tr>
+               {% endfor %}
+            </table>
+         </div>
+         
+         {% if contact.has_other_pages %}
+        <ul class="pagination">
+          {% if contact.has_previous %}
+            <li><a href="?page={{ contact.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+          {% for i in contact.paginator.page_range %}
+            {% if contact.number == i %}
+              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+              <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if contact.has_next %}
+            <li><a href="?page={{ contact.next_page_number }}">&raquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+        </ul>
+      {% endif %}
+         
+         <a class="back-btn" href="/panel"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}            

@@ -1,0 +1,24 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store-categories">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li><a href="/view_consignment">Consignment</a></li>
+            <li>Add Proof Of delivery</li>
+          </ul>
+         <form action="/add_pof/{{ pk }}" method="POST" enctype="multipart/form-data" class="add-form">
+         	{% csrf_token %}
+            <div class="inputs-wrapper">
+               <div class="name-field">
+                  <label for="name">Proof of Delivery: </label>
+                  <input type="file" name="file"  required>
+               </div>
+                      
+            </div>
+            <button class="add-btn" href="#" type="submit">Add</button>
+         </form>
+         
+         <a class="back-btn" href="/view_consignment"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}        

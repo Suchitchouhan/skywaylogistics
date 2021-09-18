@@ -1,0 +1,108 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store-categories">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li><a href="/view_consignment">Consignment</a></li>
+            <li>Update Consignment</li>
+          </ul>
+         <form action="/update_single_consignment/{{ uid }}" method="POST" enctype="multipart/form-data" class="add-form">
+         	{% csrf_token %}
+            <div class="inputs-wrapper">
+               <div class="name-field">
+                  <label for="name">Shipping Address: </label>
+                  <input type="text" name="shipping_address" value="{{ Consignment.shipping_address }}" >
+               </div>
+               
+               <div class="name-field">
+                  <label for="name">Reciving Address: </label>
+                  <input type="text" name="reciving_address" value="{{ Consignment.reciving_address }}" >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Shipper name: </label>
+                  <input type="text" name="shipper_name" value="{{ Consignment.shipper_name }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">Reciver Name: </label>
+                  <input type="text" name="reciver_name" value="{{ Consignment.reciver_name }}"  >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Type of shipment: </label>
+                  <input type="text" name="type_of_shipment" value="{{ Consignment.type_of_shipment }}"  >
+               </div>       
+               <div class="name-field">
+                  <label for="name">Invoice Number: </label>
+                  <input type="text" name="invoice_number" value="{{ Consignment.invoice_number }}"  >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Mode : </label>
+                  <input type="text" name="mode" value="{{ Consignment.mode }}"  >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Carrier: </label>
+                  <input type="text" name="carrier" value="{{ Consignment.carrier }}"  >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Origin : </label>
+                  <input type="text" name="origin" value="{{ Consignment.origin }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">Destination: </label>
+                  <input type="text" name="destination" value="{{ Consignment.destination }}"  >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Pickupdate: </label>
+                  <input type="text" name="pickupdate" value="{{ Consignment.pickupdate }}"  >
+               </div>
+               
+               <div class="name-field">
+                  <label for="name">Pickuptime: </label>
+                  <input type="text" name="pickuptime" value="{{ Consignment.pickuptime }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">Expected_Delivery_date: </label>
+                  <input type="text" name="Expected_Delivery_date" value="{{ Consignment.Expected_Delivery_date }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">Quantity : </label>
+                  <input type="number" name="qty" value="{{ Consignment.qty }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">piece_type: </label>
+                  <input type="text" name="piece_type" value="{{ Consignment.piece_type }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">weight: </label>
+                  <input type="text" name="weight" value="{{ Consignment.weight }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">ch_weight: </label>
+                  <input type="text" name="ch_weight" value="{{ Consignment.ch_weight }}"  >
+               </div>
+                <div class="name-field">
+                  <label for="name">length: </label>
+                  <input type="text" name="length" value="{{ Consignment.length }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">width: </label>
+                  <input type="text" name="width" value="{{ Consignment.width }}"  >
+               </div>
+               <div class="name-field">
+                  <label for="name">height: </label>
+                  <input type="text" name="height" value="{{ Consignment.height }}"  >
+               </div>
+               
+            </div>
+            <button class="add-btn" href="#" type="submit">Create</button>
+         </form>
+         
+         <a class="back-btn" href="/view_consignment"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}        

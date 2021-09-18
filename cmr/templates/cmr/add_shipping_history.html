@@ -1,0 +1,45 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store-categories">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li><a href="/view_consignment">Consignment</a></li>
+            <li><a href="/view_shippment_history/{{ pk }}">Shippment History</a></li> 
+            <li>Add Shippment history</li>
+          </ul>
+         <form action="/add_shipping_history/{{ pk }}" method="POST" enctype="multipart/form-data" class="add-form">
+         	{% csrf_token %}
+            <div class="inputs-wrapper">
+               <div class="name-field">
+                  <label for="name">Date: </label>
+                  <input type="text" name="date" placeholder="Enter Date" required>
+               </div>
+                 <div class="name-field">
+                  <label for="name">time: </label>
+                  <input type="text" name="time" placeholder="Enter time" required>
+               </div>
+                 <div class="name-field">
+                  <label for="name">location: </label>
+                  <input type="text" name="location" placeholder="Enter location" required>
+               </div>
+                 <div class="name-field">
+                  <label for="name">status: </label>
+                  <input type="text" name="status" placeholder="Enter status" required>
+               </div>
+                 <div class="name-field">
+                  <label for="name">update_by: </label>
+                  <input type="text" name="update_by" placeholder="Enter update_by" required>
+               </div>
+                 <div class="name-field">
+                  <label for="name">remarks: </label>
+                  <input type="text" name="remarks" placeholder="Enter remarks" required>
+               </div>
+                      
+            </div>
+            <button class="add-btn" href="#" type="submit">Add</button>
+         </form>
+         
+         <a class="back-btn" href="/view_shippment_history/{{ pk }}"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}        

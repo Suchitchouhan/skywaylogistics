@@ -1,0 +1,59 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li>feedback us</li>
+          </ul>
+          <form action="/view_slider" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            <input type="text" placeholder="Enter Specification" name="spec" required>  
+            <input type="text" placeholder="Enter Description" name="des" required>  
+            <input type="file" name="image" required>  
+            <button type="submit" class="small-btn">Add</button>
+         </form>
+         <div class="table-wrapper">
+            <table class="large-table">
+               <tr>
+                  <th>Image</th>
+                  <th>Specification</th>
+                  <th>Description</th>
+                  <th>Operations</th>
+               </tr>
+               {% for x in contact %}
+               <tr>
+                  <td><img src="{{ x.image.url }}" width="50" height="50"></td>
+                  <td>{{ x.spec }}</td>
+                  <td>{{ x.des }}</td>
+                  <td><a href="/delete_slider/{{ x.pk }}" style="color: #000000;background-color: #52a4b7;">Delete</a></td>  
+               </tr>
+               {% endfor %}
+            </table>
+         </div>
+         
+         {% if contact.has_other_pages %}
+        <ul class="pagination">
+          {% if contact.has_previous %}
+            <li><a href="?page={{ contact.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+          {% for i in contact.paginator.page_range %}
+            {% if contact.number == i %}
+              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+              <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if contact.has_next %}
+            <li><a href="?page={{ contact.next_page_number }}">&raquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+        </ul>
+      {% endif %}
+         
+         <a class="back-btn" href="/panel"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}            

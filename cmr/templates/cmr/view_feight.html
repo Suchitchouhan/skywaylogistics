@@ -1,0 +1,64 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li>Stores</li>
+          </ul>
+         <div class="table-wrapper">
+            <table class="large-table">
+               <tr>
+                  <th>Name</th>
+                  <th>address</th>
+                  <th>city</th>
+                  <th>state</th>
+                  <th>country</th>
+                  <th>commodity</th>
+                  <th>phone</th>
+                  <th>cargo_file</th>
+                  <th>verification</th>
+
+               </tr>
+               {% for x in contact %}
+               <tr>
+                  <td>{{ x.name }}</td>
+                  <td>{{ x.address }}</td>
+                  <td>{{ x.city }}</td>
+                  <td>{{ x.state }}</td>
+                  <td>{{ x.country }}</td>
+                  <td>{{ x.commodity }}</td>
+                  <td>{{ x.phone }}</td>
+                  <td><a href="{{ x.cargo_file.url }}" download>{{ x.cargo_file }}</a></td>
+                  <td>{{ x.verification }}</td>
+
+               </tr>
+               {% endfor %}
+            </table>
+         </div>
+         
+         {% if contact.has_other_pages %}
+        <ul class="pagination">
+          {% if contact.has_previous %}
+            <li><a href="?page={{ contact.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+          {% for i in contact.paginator.page_range %}
+            {% if contact.number == i %}
+              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+              <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if contact.has_next %}
+            <li><a href="?page={{ contact.next_page_number }}">&raquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+        </ul>
+      {% endif %}
+         
+         <a class="back-btn" href="/panel"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}            

@@ -1,0 +1,112 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store-categories">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li><a href="/view_consignment">Consignment</a></li>
+            <li>Add Consignment</li>
+          </ul>
+         <form action="/add_single_consignment" method="POST" enctype="multipart/form-data" class="add-form">
+         	{% csrf_token %}
+            <div class="inputs-wrapper">
+               <div class="name-field">
+                  <label for="name">Consignment Id: </label>
+                  <input type="text" name="uid" placeholder="Enter Consignment uid" required>
+               </div>
+               <div class="name-field">
+                  <label for="name">Shipping Address: </label>
+                  <input type="text" name="shipping_address" placeholder="Enter shipping address" >
+               </div>
+               
+               <div class="name-field">
+                  <label for="name">Reciving Address: </label>
+                  <input type="text" name="reciving_address" placeholder="Enter reciving address" >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Shipper name: </label>
+                  <input type="text" name="shipper_name" placeholder="Enter shipper name" >
+               </div>
+               <div class="name-field">
+                  <label for="name">Reciver Name: </label>
+                  <input type="text" name="reciver_name" placeholder="Enter reciver name" >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Type of shipment: </label>
+                  <input type="text" name="type_of_shipment" placeholder="Enter type of shipment" >
+               </div>       
+               <div class="name-field">
+                  <label for="name">Invoice Number: </label>
+                  <input type="text" name="invoice_number" placeholder="Enter invoice number" >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Mode : </label>
+                  <input type="text" name="mode" placeholder="Enter mode" >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Carrier: </label>
+                  <input type="text" name="carrier" placeholder="Enter Carrier" >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Origin : </label>
+                  <input type="text" name="origin" placeholder="Enter Origin" >
+               </div>
+               <div class="name-field">
+                  <label for="name">Destination: </label>
+                  <input type="text" name="destination" placeholder="Enter destination" >
+               </div>
+
+               <div class="name-field">
+                  <label for="name">Pickupdate: </label>
+                  <input type="text" name="pickupdate" placeholder="Enter pickupdate" >
+               </div>
+               
+               <div class="name-field">
+                  <label for="name">Pickuptime: </label>
+                  <input type="text" name="pickuptime" placeholder="Enter pickuptime" >
+               </div>
+               <div class="name-field">
+                  <label for="name">Expected_Delivery_date: </label>
+                  <input type="text" name="Expected_Delivery_date" placeholder="Enter Expected Delivery date" >
+               </div>
+               <div class="name-field">
+                  <label for="name">Quantity : </label>
+                  <input type="number" name="qty" placeholder="Enter Quantity" >
+               </div>
+               <div class="name-field">
+                  <label for="name">piece_type: </label>
+                  <input type="text" name="piece_type" placeholder="Enter piece type" >
+               </div>
+               <div class="name-field">
+                  <label for="name">weight: </label>
+                  <input type="text" name="weight" placeholder="Enter weight" >
+               </div>
+               <div class="name-field">
+                  <label for="name">ch_weight: </label>
+                  <input type="text" name="ch_weight" placeholder="Enter ch_weight" >
+               </div>
+                <div class="name-field">
+                  <label for="name">length: </label>
+                  <input type="text" name="length" placeholder="Enter length" >
+               </div>
+               <div class="name-field">
+                  <label for="name">width: </label>
+                  <input type="text" name="width" placeholder="Enter width" >
+               </div>
+               <div class="name-field">
+                  <label for="name">height: </label>
+                  <input type="text" name="height" placeholder="Enter height" >
+               </div>
+               
+            </div>
+            <button class="add-btn" href="#" type="submit">Create</button>
+         </form>
+         
+         <a class="back-btn" href="/view_consignment"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}        

@@ -1,0 +1,100 @@
+{% extends "cmr/base.html" %}
+      {% block content %}
+       <div id="store">
+         <ul class="special-head">
+            <li><a href="/panel">Home</a></li>
+            <li>Consignment</li>
+          </ul>
+          <a class="add-btn" href="/add_consignment">&#43; ADD Consignment By Csv </a>
+          <a class="add-btn" href="/add_single_consignment">&#43; ADD Consignment </a>
+
+         <form action="/view_consignment" method="POST">
+          {% csrf_token %}
+            <input type="text" placeholder="Enter Consignment Id" name="uid" required>  
+            <button type="submit" class="small-btn">Search</button>
+         </form>
+         <div class="table-wrapper">
+            <table class="large-table">
+               <tr>
+                  <th>Consignment Id</th>
+                  <th>Shipping Address</th>
+                  <th>Reciving Address</th>
+                  <th>Shipper Name</th>
+                  <th>Reciver Name</th>
+                  <th>Type Of Shippment</th>
+                  <th>Invoice Number</th>
+                  <th>Mode</th>
+                  <th>Carrier</th>
+                  <th>Origin</th>
+                  <th>Destination</th>
+                  <th>Pickup Date</th>
+                  <th>Pickup Time</th>
+                  <th>Expected Delivery Date</th>
+                  <th>Quantity</th>
+                  <th>Piece Type</th>
+                  <th>Weight</th>
+                  <th>Ch Weight</th>
+                  <th>length</th>
+                  <th>Width</th>
+                  <th>heigth</th>
+                  <th>Operation</th>
+               </tr>
+               {% for x in consignment %}
+               <tr>
+                  <td>{{ x.uid }}</td>
+                  <td>{{ x.shipping_address }}</td>
+                  <td>{{ x.reciving_address }}</td>
+                  <td>{{ x.shipper_name }}</td>
+                  <td>{{ x.reciver_name }}</td>
+                  <td>{{ x.type_of_shipment }}</td>
+                  <td>{{ x.invoice_number }}</td>
+                  <td>{{ x.mode }}</td>
+                  <td>{{ x.carrier }}</td>
+                  <td>{{ x.origin }}</td>
+                  <td>{{ x.destination }}</td>
+                  <td>{{ x.pickupdate }}</td>
+                  <td>{{ x.pickuptime }}</td>
+                  <td>{{ x.Expected_Delivery_date }}</td>
+                  <td>{{ x.qty }}</td>
+                  <td>{{ x.piece_type }}</td>
+                  <td>{{ x.weight }}</td>
+                  <td>{{ x.ch_weight }}</td>
+                  <td>{{ x.length }}</td>
+                  <td>{{ x.width }}</td>
+                  <td>{{ x.height }}</td>
+                  <td>
+                     <a class="small-btn" href="/update_single_consignment/{{ x.uid }}" style="font-size: 12px; padding: 2px;">Update</a>
+                    <a class="small-btn" href="/view_shippment_history/{{ x.pk }}" style="font-size: 12px; padding: 2px;">Shippment History</a>
+                    <a class="small-btn" href="/add_pof/{{ x.pk }}" style="font-size: 12px; padding: 2px;">POD</a>
+                  </td>
+               </tr>
+               {% endfor %}
+            </table>
+         </div>
+         
+         {% if consignment.has_other_pages %}
+        <ul class="pagination">
+          {% if consignment.has_previous %}
+            <li><a href="?page={{ consignment.previous_page_number }}">&laquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+          {% for i in consignment.paginator.page_range %}
+            {% if consignment.number == i %}
+              <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+              <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if consignment.has_next %}
+            <li><a href="?page={{ consignment.next_page_number }}">&raquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+        </ul>
+      {% endif %}
+         
+         <a class="back-btn" href="/panel"><span>&#8592;</span> Back</a>
+      </div>
+
+{% endblock content %}            

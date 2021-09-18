@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Panel</title>
+   <link rel="stylesheet" href="{% static 'cmr/css/font-awesome-all.min.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'cmr/css/style.css' %}" type="text/css">
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+   <main class="main">
+      <button id="btn">
+         <span></span>
+         <span></span>
+         <span></span>
+      </button>
+      <nav class="nav">
+         <h2 class="nav-title"><span><i class="fas fa-user"></i></span>{{ username }}</h2>
+         <ul>
+             <li><a class="links" href="/view_slider">Slider<span><i class="fas fa-angle-right"></i></span></a></li>
+            <li><a class="links" href="/view_contact_us">Contact Us<span><i class="fas fa-angle-right"></i></span></a></li>
+             <li><a class="links" href="/view_feight">Feight<span><i class="fas fa-angle-right"></i></span></a></li>
+           <li><a class="links" href="/view_feedback">Feedback<span><i class="fas fa-angle-right"></i></span></a></li>
+
+             <li><a class="links" href="/add_consignment">Add consignment<span><i class="fas fa-angle-right"></i></span></a></li>
+            <li><a class="links" href="/view_consignment">View consignment<span><i class="fas fa-angle-right"></i></span></a></li>
+
+         </ul>
+         <a class="logout" href="/logout_view">Logout</a>
+      </nav>
+      {% block content %}
+      {% endblock content %}   
+   </main>
+   {% if status %}
+   <script type="text/javascript">
+      swal("{{ status }}","","success");
+   </script>
+   {% endif %}
+   <script src="{% static 'cmr/js/jquery.js' %}" type="text/javascript"></script>
+
+   <script src="{% static 'cmr/js/font-awesome-all.min.js' %}" type="text/javascript"></script>
+   <script src="{% static 'cmr/js/main.js' %}" type="text/javascript"></script>
+
+</body>
+</html> 
