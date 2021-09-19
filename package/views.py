@@ -47,18 +47,21 @@ def view_about_us(request):
 	context={}
 	context['about_us']='active'
 	context['about_us_data']=about_us.objects.all().order_by("-id")
+	context['siteinfo']=siteinfo.objects.all().first()
 	return render(request,'package/about.html',context)
 
 
 def view_core_service(request):
 	context={}
 	context['view_core_service']='active'
+	context['siteinfo']=siteinfo.objects.all().first()
 	context['core_service']=core_service.objects.all().order_by("-id")
 	return render(request,'package/view_core_service.html',context)
 
 
 def intustry_service(request):
 	context={}
+	context['siteinfo']=siteinfo.objects.all().first()
 	context['intustry_service']='active'
 	context['industry_service_data']=industry_service.objects.all().order_by("-id")
 	return render(request,'package/intustry_service.html',context)
@@ -67,6 +70,7 @@ def intustry_service(request):
 def Specialized_Logistic(request):
 	context={}
 	context['Specialized_Logistic']='active'
+	context['siteinfo']=siteinfo.objects.all().first()	
 	return render(request,'package/Specialized_Logistic.html',context)
 
 
@@ -75,6 +79,7 @@ def Specialized_Logistic(request):
 def feight_Quote(request):
 	context={}
 	context['feight_Quote']='active'
+	context['siteinfo']=siteinfo.objects.all().first()
 	if request.method=="POST":
 		name=request.POST.get("name")
 		address=request.POST.get("address")
@@ -108,6 +113,7 @@ def feight_Quote(request):
 def track(request):
 	context={}
 	context['track']='active'
+	context['siteinfo']=siteinfo.objects.all().first()	
 	if request.method=="POST":
 		num=request.POST.get("num")
 		if check_blank_or_null([num]):
@@ -129,6 +135,7 @@ def track(request):
 def add_feedback(request):
 	context={}
 	context['add_feedback']='active'
+	context['siteinfo']=siteinfo.objects.all().first()	
 	if request.method == 'POST':
 		email=request.POST.get('email')
 		mobile=request.POST.get('mobile')
