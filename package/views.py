@@ -105,9 +105,9 @@ def feight_Quote(request):
 			context['status'] = "successfully Sent"
 		else:
 			context['status'] = "unsuccessfull"	
-		return render(request,'package/feight_Quote.html',{})
+		return render(request,'package/feight_Quote.html',context)
 	else:
-		return render(request,'package/feight_Quote.html',{})
+		return render(request,'package/feight_Quote.html',context)
 
 
 def track(request):
