@@ -1,7 +1,5 @@
 env
 media
-static
-staticfiles
 cmr/migrations
 cmr/migrations/
 cmr/__pycache__
